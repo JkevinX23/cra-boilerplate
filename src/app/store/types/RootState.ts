@@ -1,3 +1,4 @@
+import { KevinState } from 'app/store/modules/kevin/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -5,5 +6,6 @@
   You have to declare them here manually
 */
 export interface RootState {
+  kevin?: KevinState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

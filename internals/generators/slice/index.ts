@@ -7,13 +7,12 @@ import path from 'path';
 import inquirer from 'inquirer';
 
 import { pathExists } from '../utils';
-import { baseGeneratorPath } from '../paths';
+import { storeGeneratorPath } from '../paths';
 
 inquirer.registerPrompt('directory', require('inquirer-directory'));
 
 export enum SliceProptNames {
   'sliceName' = 'sliceName',
-  'path' = 'path',
   'wantSaga' = 'wantSaga',
 }
 
@@ -21,7 +20,7 @@ type Answers = { [P in SliceProptNames]: string };
 
 export const rootStatePath = path.join(
   __dirname,
-  '../../../src/types/RootState.ts',
+  '../../../src/app/store/types/RootState.ts',
 );
 
 export const sliceGenerator: PlopGeneratorConfig = {
@@ -30,14 +29,8 @@ export const sliceGenerator: PlopGeneratorConfig = {
     {
       type: 'input',
       name: SliceProptNames.sliceName,
-      message: 'What should it be called (automatically adds ...Slice postfix)',
+      message: 'What should it be called? ',
     },
-    {
-      type: 'directory',
-      name: SliceProptNames.path,
-      message: 'Where do you want it to be created?',
-      basePath: `${baseGeneratorPath}`,
-    } as any,
     {
       type: 'confirm',
       name: SliceProptNames.wantSaga,
@@ -48,7 +41,7 @@ export const sliceGenerator: PlopGeneratorConfig = {
   actions: data => {
     const answers = data as Answers;
 
-    const slicePath = `${baseGeneratorPath}/${answers.path}/slice`;
+    const slicePath = `${storeGeneratorPath}/modules/${answers.sliceName}`;
 
     if (pathExists(slicePath)) {
       throw new Error(`Slice '${answers.sliceName}' already exists`);
@@ -97,7 +90,7 @@ export const sliceGenerator: PlopGeneratorConfig = {
     }
 
     actions.push({
-      type: 'prettify',
+      type: 'lint:fix',
       data: { path: `${slicePath}/**` },
     });
 
