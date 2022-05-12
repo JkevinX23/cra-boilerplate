@@ -1,9 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import {{pascalCase componentName}} from '.'
+import {{pascalCase componentName}}, { {{pascalCase componentName}}Props } from '.'
 
 export default {
   title: '{{pascalCase componentName}}',
-  component: {{pascalCase componentName}}
+  component: {{pascalCase componentName}},
+  args: {} as {{pascalCase componentName}}Props
 } as ComponentMeta<typeof {{pascalCase componentName}}>
 
 export const Basic: ComponentStory<typeof {{pascalCase componentName}}> = (props) => <{{pascalCase componentName}} {...props} />

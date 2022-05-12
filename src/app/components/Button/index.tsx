@@ -1,7 +1,8 @@
 import { memo } from 'react'
 
 import * as S from './styles'
-import { ButtonProps } from './types'
+
+export type ButtonProps = {}
 
 const Button = memo((props: ButtonProps) => {
   return (

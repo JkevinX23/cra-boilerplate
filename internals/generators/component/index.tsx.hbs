@@ -3,7 +3,9 @@ import * as S from './styles'
 import { memo } from 'react';
 {{/if}}
 
-import { {{pascalCase componentName}}Props } from './types'
+export type {{pascalCase componentName}}Props = {
+
+}
 
 {{#if wantMemo}}
 const {{ pascalCase componentName }} = memo((props: {{pascalCase componentName}}Props) => {

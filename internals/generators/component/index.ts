@@ -2,23 +2,23 @@
  * Component Generator
  */
 
-import { Actions, PlopGeneratorConfig } from 'node-plop';
-import inquirer from 'inquirer';
+import inquirer from 'inquirer'
+import { Actions, PlopGeneratorConfig } from 'node-plop'
 
-import { pathExists } from '../utils';
-import { baseGeneratorPath } from '../paths';
+import { baseGeneratorPath } from '../paths'
+import { pathExists } from '../utils'
 
-inquirer.registerPrompt('directory', require('inquirer-directory'));
+inquirer.registerPrompt('directory', require('inquirer-directory'))
 
 export enum ComponentProptNames {
   componentName = 'componentName',
   path = 'path',
   wantMemo = 'wantMemo',
   wantLoadable = 'wantLoadable',
-  wantTests = 'wantTests',
+  wantTests = 'wantTests'
 }
 
-type Answers = { [P in ComponentProptNames]: string };
+type Answers = { [P in ComponentProptNames]: string }
 
 export const componentGenerator: PlopGeneratorConfig = {
   description: 'Add a component',
@@ -26,76 +26,76 @@ export const componentGenerator: PlopGeneratorConfig = {
     {
       type: 'input',
       name: ComponentProptNames.componentName,
-      message: 'What should it be called?',
+      message: 'What should it be called?'
     },
     {
       type: 'directory',
       name: ComponentProptNames.path,
       message: 'Where do you want it to be created?',
-      basePath: `${baseGeneratorPath}`,
+      basePath: `${baseGeneratorPath}`
     } as any,
     {
       type: 'confirm',
       name: ComponentProptNames.wantMemo,
       default: true,
-      message: 'Do you want to wrap your component in React.memo?',
+      message: 'Do you want to wrap your component in React.memo?'
     },
     {
       type: 'confirm',
       name: ComponentProptNames.wantLoadable,
       default: false,
-      message: 'Do you want to load the component asynchronously?',
+      message: 'Do you want to load the component asynchronously?'
     },
     {
       type: 'confirm',
       name: ComponentProptNames.wantTests,
       default: true,
-      message: 'Do you want to have tests?',
-    },
+      message: 'Do you want to have tests?'
+    }
   ],
-  actions: data => {
-    const answers = data as Answers;
+  actions: (data) => {
+    const answers = data as Answers
 
-    const componentPath = `${baseGeneratorPath}/${answers.path}/{{properCase ${ComponentProptNames.componentName}}}`;
-    const actualComponentPath = `${baseGeneratorPath}/${answers.path}/${answers.componentName}`;
+    const componentPath = `${baseGeneratorPath}/${answers.path}/{{properCase ${ComponentProptNames.componentName}}}`
+    const actualComponentPath = `${baseGeneratorPath}/${answers.path}/${answers.componentName}`
 
     if (pathExists(actualComponentPath)) {
-      throw new Error(`Component '${actualComponentPath}' already exists`);
+      throw new Error(`Component '${actualComponentPath}' already exists`)
     }
     const actions: Actions = [
       {
         type: 'add',
         path: `${componentPath}/index.tsx`,
         templateFile: './component/index.tsx.hbs',
-        abortOnFail: true,
+        abortOnFail: true
       },
       {
         type: 'add',
         path: `${componentPath}/stories.tsx`,
         templateFile: './component/stories.tsx.hbs',
-        abortOnFail: true,
+        abortOnFail: true
       },
       {
         type: 'add',
         path: `${componentPath}/styles.ts`,
         templateFile: './component/styles.ts.hbs',
-        abortOnFail: true,
-      },
-      {
-        type: 'add',
-        path: `${componentPath}/types.ts`,
-        templateFile: './component/types.ts.hbs',
-        abortOnFail: true,
+        abortOnFail: true
       }
-    ];
+      // {
+      //   type: 'add',
+      //   path: `${componentPath}/types.ts`,
+      //   templateFile: './component/types.ts.hbs',
+      //   abortOnFail: true,
+      // }
+    ]
 
     if (answers.wantLoadable) {
       actions.push({
         type: 'add',
         path: `${componentPath}/Loadable.ts`,
         templateFile: './component/loadable.ts.hbs',
-        abortOnFail: true,
-      });
+        abortOnFail: true
+      })
     }
 
     if (answers.wantTests) {
@@ -103,15 +103,15 @@ export const componentGenerator: PlopGeneratorConfig = {
         type: 'add',
         path: `${componentPath}/__tests__/index.test.tsx`,
         templateFile: './component/test.tsx.hbs',
-        abortOnFail: true,
-      });
+        abortOnFail: true
+      })
     }
-  
+
     actions.push({
       type: 'lint:fix',
-      data: { path: `${actualComponentPath}/**` },
-    });
+      data: { path: `${actualComponentPath}/**` }
+    })
 
-    return actions;
-  },
-};
+    return actions
+  }
+}
