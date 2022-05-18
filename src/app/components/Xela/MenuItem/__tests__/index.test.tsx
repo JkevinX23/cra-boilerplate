@@ -4,7 +4,7 @@ import MenuItem from '..'
 
 describe('<MenuItem/>', () => {
   it('should render the heading', () => {
-    const { container } = render(<MenuItem />)
+    const { container } = render(<MenuItem icon='dashboard' text='kevin' />)
 
     expect(
       screen.getByRole('heading', { name: /MenuItem/i })
