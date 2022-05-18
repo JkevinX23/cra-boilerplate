@@ -1,4 +1,8 @@
+import Button from 'app/components/Button'
+import { Smiley } from 'phosphor-react'
+
 import { PageHelmet } from '../../components/Helmet'
+
 export function HomePage() {
   return (
     <>
@@ -6,7 +10,9 @@ export function HomePage() {
         title='HomePage'
         description='A Boilerplate application homepage'
       />
-      <span>My HomePage</span>
+      <Button background='blue'>
+        <Smiley /> kevin
+      </Button>
     </>
   )
 }

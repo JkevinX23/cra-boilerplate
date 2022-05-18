@@ -1,7 +1,42 @@
 import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  /* montserrat-300 - latin */
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+       url('/fonts/nunito-sans-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/nunito-sans-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local(''),
+       url('/fonts/nunito-sans-v12-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/nunito-sans-v12-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+       url('/fonts/nunito-sans-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/nunito-sans-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local(''),
+       url('/fonts/nunito-sans-v12-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/nunito-sans-v12-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -10,7 +45,6 @@ export const GlobalStyle = createGlobalStyle`
   src: local('Montserrat Light'), local('Montserrat-Light'),
        url('/fonts/montserrat-v15-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
 }
-/* montserrat-regular - latin */
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -38,7 +72,6 @@ export const GlobalStyle = createGlobalStyle`
        url('/fonts/times-new-roman-bold.ttf') format('ttf'),
 }
 
-/* montserrat-600 - latin */
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;

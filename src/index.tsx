@@ -6,6 +6,8 @@ import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import reportWebVitals from 'reportWebVitals'
+import { ThemeProvider } from 'styled-components'
+import theme from 'styles/theme'
 
 import { Application } from './app/App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'

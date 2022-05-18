@@ -17,9 +17,9 @@ module.exports = {
       files: ['**/*.ts?(x)'],
       rules: {
         'prettier/prettier': ['warn', prettierOptions],
-        'simple-import-sort/exports': 'error',
-        'simple-import-sort/imports': 'error'
+        'simple-import-sort/exports': 'warn',
+        'simple-import-sort/imports': 'warn'
       }
     }
-  ],
+  ]
 }

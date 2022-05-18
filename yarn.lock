@@ -11878,6 +11878,11 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
+phosphor-react@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/phosphor-react/-/phosphor-react-1.4.1.tgz#97b0e034d9937db9b97fe53b186e9646464fd4e7"
+  integrity sha512-gO5j7U0xZrdglTAYDYPACU4xDOFBTJmptrrB/GeR+tHhCZF3nUMyGmV/0hnloKjuTrOmpSFlbfOY78H39rgjUQ==
+
 picocolors@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-0.2.1.tgz#570670f793646851d1ba135996962abad587859f"
@@ -15618,6 +15623,11 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+usehooks-ts@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/usehooks-ts/-/usehooks-ts-2.5.2.tgz#c6229a4dd59f7081e0b78569b23e7bb6f966e569"
+  integrity sha512-keONG+M5aax8eN9kEZeayNBgK+7MSLVGCuP18pSdce5D5iLiImCxqkm04GWYSkA7Xpo0GWnPOK3cXAOY/K+T1g==
 
 user-home@^1.1.1:
   version "1.1.1"
